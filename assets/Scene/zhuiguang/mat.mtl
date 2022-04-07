@@ -1,0 +1,25 @@
+{
+  "__type__": "cc.Material",
+  "_name": "mat",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "eab317df-f7eb-47ad-9b3c-c3ad887b02c5"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      },
+      "props": {
+        "center": {
+          "__type__": "cc.Vec2",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "radius": 0.4
+      }
+    }
+  }
+}
