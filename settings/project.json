@@ -8,7 +8,14 @@
       false
     ]
   ],
-  "excluded-modules": [],
+  "excluded-modules": [
+    "VideoPlayer",
+    "3D",
+    "3D Primitive",
+    "3D Physics/cannon.js",
+    "3D Physics/Builtin",
+    "3D Particle"
+  ],
   "group-list": [
     "default",
     "render"
@@ -25,7 +32,7 @@
     "width": 960,
     "height": 640
   },
-  "last-module-event-record-time": 0,
+  "last-module-event-record-time": 1649313068133,
   "assets-sort-type": "name",
   "facebook": {
     "enable": false,
