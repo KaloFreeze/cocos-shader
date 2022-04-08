@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.Material",
+  "_name": "ablation-mat",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "c045d449-5b42-4980-9681-86afb1c17f43"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      },
+      "props": {
+        "burnThreshold": 0
+      }
+    }
+  }
+}

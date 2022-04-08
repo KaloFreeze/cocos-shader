@@ -20,7 +20,6 @@
     "default",
     "render"
   ],
-  "start-scene": "2d2f792f-a40c-49bb-a189-ed176a246e49",
   "design-resolution-width": 960,
   "design-resolution-height": 640,
   "fit-width": false,
@@ -45,5 +44,6 @@
     }
   },
   "preview-port": 7456,
-  "clear-simulator-cache": true
+  "clear-simulator-cache": true,
+  "start-scene": "current"
 }
