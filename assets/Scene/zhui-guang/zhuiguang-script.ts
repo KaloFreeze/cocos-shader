@@ -25,14 +25,8 @@ export default class NewClass extends cc.Component {
         this.node.on(cc.Node.EventType.TOUCH_START, this.toucheEvent, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.toucheEvent, this);
         this.texture1 = new cc.RenderTexture();
-        // this.texture2 = new cc.RenderTexture();
         this.texture1.initWithSize(cc.winSize.width, cc.winSize.height);
-        // this.texture1.initWithSize(this.node.width, this.node.height);
-        // this.texture2.initWithSize(cc.winSize.width, cc.winSize.height);
-
         this.renderCamera.targetTexture = this.texture1;
-        // this.mainCamera.targetTexture = this.texture2;
-        // this.renderSpr.spriteFrame.setTexture(this.texture1);
     }
 
     toucheEvent(evt: cc.Event.EventTouch) {
