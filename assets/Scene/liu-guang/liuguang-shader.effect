@@ -97,7 +97,6 @@ CCProgram fs %{
     && (v_uv0.y < flowK * v_uv0.x + b2)
     ) 
     {
-      // o.rgb = mix(o.rgb, addColor.rgb, addColor.a);
       o.rgb *= flowStrength;
     }
     ALPHA_TEST(o);

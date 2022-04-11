@@ -1,0 +1,24 @@
+{
+  "__type__": "cc.Material",
+  "_name": "liuguang-mat2",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "f8258ace-7487-4a27-9a4d-4ddfaaae3938"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      },
+      "props": {
+        "flowWidth": 0.02,
+        "flowSpeed": 0.2,
+        "flowCycle": 0.4,
+        "flowK": 1,
+        "flowStrength": -1.2
+      }
+    }
+  }
+}
