@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.Material",
+  "_name": "water-ripper-script",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "3d5e7843-1a8b-4fcb-b4be-124e672704ca"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      },
+      "props": {
+        "wave_radius": 0.1
+      }
+    }
+  }
+}

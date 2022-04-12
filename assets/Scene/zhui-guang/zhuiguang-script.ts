@@ -22,8 +22,11 @@ export default class NewClass extends cc.Component {
 
     start () {
         this.renderSpr.getMaterial(0).setProperty("wh_ratio", cc.winSize.width / cc.winSize.height)
+        // this.renderSpr.getMaterial(0).setProperty("wh_ratio", cc.winSize.width / cc.winSize.height)
+
         this.node.on(cc.Node.EventType.TOUCH_START, this.toucheEvent, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this.toucheEvent, this);
+        
         this.texture1 = new cc.RenderTexture();
         this.texture1.initWithSize(cc.winSize.width, cc.winSize.height);
         this.renderCamera.targetTexture = this.texture1;
@@ -31,7 +34,7 @@ export default class NewClass extends cc.Component {
 
     toucheEvent(evt: cc.Event.EventTouch) {
         let pos = evt.getLocation();
-        this.renderSpr.getMaterial(0).setProperty("center", [pos.x / cc.winSize.width, pos.y / cc.winSize.height])
+        this.renderSpr.getMaterial(0).setProperty('center', [pos.x / cc.winSize.width, (pos.y) / cc.winSize.height]);
     }
 
     update (dt) {

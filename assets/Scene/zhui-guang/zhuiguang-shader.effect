@@ -90,9 +90,11 @@ CCProgram fs %{
     float rx = center.x * wh_ratio;
     float ry = center.y;
 
-    float dis = (v_uv0.x * wh_ratio - rx) * (v_uv0.x * wh_ratio - rx) + (v_uv0.y - ry) * (v_uv0.y - ry);
+    float dis = (v_uv0.x  - center.x) * wh_ratio * (v_uv0.x - center.x) * wh_ratio + (v_uv0.y - center.y) * (v_uv0.y - center.y);
 
     o.a = smoothstep(circle, circle - blur, dis);
+
+    // o.a = step(length(v_uv0 - vec2(0.5, 0.5)), 0.1);
 
     gl_FragColor = o;
   }
