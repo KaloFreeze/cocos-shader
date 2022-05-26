@@ -4,20 +4,20 @@
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
-    "__uuid__": "f8258ace-7487-4a27-9a4d-4ddfaaae3938"
+    "__uuid__": "84e8f719-ed7a-427b-9fa3-a2bc1c0a5d64"
   },
   "_techniqueIndex": 0,
   "_techniqueData": {
     "0": {
+      "props": {
+        "flowWidth": 0.05,
+        "flowSpeed": 0.5,
+        "flowCycle": 2,
+        "flowK": -1,
+        "flowStrength": 1.2
+      },
       "defines": {
         "USE_TEXTURE": true
-      },
-      "props": {
-        "flowWidth": 0.02,
-        "flowSpeed": 0.2,
-        "flowCycle": 0.4,
-        "flowK": 1,
-        "flowStrength": -1.2
       }
     }
   }
