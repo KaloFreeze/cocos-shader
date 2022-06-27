@@ -1,0 +1,115 @@
+// Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.  
+ 
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      blendState:
+        targets:
+        - blend: true
+      rasterizerState:
+        cullMode: none
+      properties:
+        texture: { value: white }
+        alphaThreshold: { value: 0.5 }
+        wh_ratio: {value: 1}
+        radius: {value: 0.5}
+        center: { value: [0.5,0.5]}
+        blur: { value: 0.1}
+
+        radius2: {value: 0.5}
+        center2: { value: [0.5,0.5]}
+        blur2: { value: 0.1}
+
+        minAlpha: { value: 1.0 , editor: { slide: true, range: [0, 1.0], step: 0.001 }}
+}%
+ 
+ 
+CCProgram vs %{
+  precision highp float;
+ 
+  #include <cc-global>
+  #include <cc-local>
+ 
+  in vec3 a_position;
+  in vec4 a_color;
+  out vec4 v_color;
+ 
+  #if USE_TEXTURE
+  in vec2 a_uv0;
+  out vec2 v_uv0;
+  #endif
+ 
+  void main () {
+    vec4 pos = vec4(a_position, 1);
+ 
+    #if CC_USE_MODEL
+    pos = cc_matViewProj * cc_matWorld * pos;
+    #else
+    pos = cc_matViewProj * pos;
+    #endif
+ 
+    #if USE_TEXTURE
+    v_uv0 = vec2(a_uv0.x, 1.0 - a_uv0.y);
+    #endif
+ 
+    v_color = a_color;
+ 
+    gl_Position = pos;
+  }
+}%
+ 
+ 
+CCProgram fs %{
+  precision highp float;
+  
+  #include <alpha-test>
+  #include <texture>
+ 
+  in vec4 v_color;
+ 
+  #if USE_TEXTURE
+  in vec2 v_uv0;
+  uniform sampler2D texture;
+  #endif
+
+  uniform Constant {
+      vec2 center;
+      vec2 center2;
+      float radius;
+      float wh_ratio;
+      float blur;
+      float radius2;
+      float blur2;
+      float minAlpha;
+  };
+ 
+  void main () {
+    vec4 o = vec4(1, 1, 1, 1);
+ 
+    #if USE_TEXTURE
+      CCTexture(texture, v_uv0, o);
+    #endif
+
+    o *= v_color;
+ 
+    // ALPHA_TEST(o);
+
+    float circle = radius * radius;
+    float rx = center.x * wh_ratio;
+    float ry = center.y;
+
+    float circle2 = radius2 * radius2;
+    float rx2 = center2.x * wh_ratio;
+    float ry2 = center2.y;
+ 
+    float dis = pow((v_uv0.x  - center.x) * wh_ratio, 2.0) + pow((v_uv0.y - center.y), 2.0);
+    float dis2 = pow((v_uv0.x  - center2.x) * wh_ratio, 2.0) + pow((v_uv0.y - center2.y), 2.0);
+    // o.a = clamp(smoothstep(circle, circle - blur, dis) + smoothstep(circle2, circle2 - blur2, dis2), 0.0001, 1.0);
+    o.a = max(smoothstep(circle, circle - blur, dis) , smoothstep(circle2, circle2 - blur2, dis2));
+    o.a = o.a * (1.0 - minAlpha) + minAlpha;
+    gl_FragColor = o;
+  }
+}%
+ 

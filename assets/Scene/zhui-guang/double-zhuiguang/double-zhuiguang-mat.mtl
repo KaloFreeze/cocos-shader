@@ -1,0 +1,34 @@
+{
+  "__type__": "cc.Material",
+  "_name": "double-zhuiguang-mat",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "d68e30fb-8755-407b-b96a-ce48fe363684"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "props": {
+        "center": {
+          "__type__": "cc.Vec2",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "radius": 0.4,
+        "minAlpha": 0.4,
+        "center2": {
+          "__type__": "cc.Vec2",
+          "x": 0.8,
+          "y": 0.8
+        },
+        "radius2": 0.25,
+        "blur2": 0.1,
+        "blur": 0
+      },
+      "defines": {
+        "USE_TEXTURE": true
+      }
+    }
+  }
+}
