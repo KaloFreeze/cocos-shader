@@ -30,6 +30,8 @@ export default class NewClass extends cc.Component {
         this.texture1 = new cc.RenderTexture();
         this.texture1.initWithSize(cc.winSize.width, cc.winSize.height);
         this.renderCamera.targetTexture = this.texture1;
+
+        this.renderSpr.spriteFrame = new cc.SpriteFrame(this.texture1);
     }
 
     toucheEvent(evt: cc.Event.EventTouch) {
@@ -38,9 +40,9 @@ export default class NewClass extends cc.Component {
     }
 
     update (dt) {
-        let spriteFrame = new cc.SpriteFrame();
-        spriteFrame.setTexture(this.texture1);
-        this.renderSpr.spriteFrame = spriteFrame;
+        // let spriteFrame = new cc.SpriteFrame();
+        // spriteFrame.setTexture(this.texture1);
+        // this.renderSpr.spriteFrame = spriteFrame;
     }
 
     onSliderSize(slider:cc.Slider) {

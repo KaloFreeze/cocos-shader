@@ -45,5 +45,8 @@
   },
   "preview-port": 7456,
   "clear-simulator-cache": true,
-  "start-scene": "current"
+  "start-scene": "current",
+  "migrate-history": [
+    "cloud-function"
+  ]
 }
